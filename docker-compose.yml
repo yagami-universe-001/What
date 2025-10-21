@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  what-bot:
+    build: .
+    container_name: what-bot
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./session:/app/session       # Keep WhatsApp session persistent
+      - ./data:/app/data             # Optional: for logs or data
+    environment:
+      - NODE_ENV=production
+    command: ["node", "index.js"]
+    tty: true
