@@ -12,6 +12,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
+RUN apk add --no-cache git
 RUN npm install --force
 
 # Copy all files
