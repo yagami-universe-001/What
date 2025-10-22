@@ -11,6 +11,9 @@ WORKDIR /app
 # Copy package files first (better caching)
 COPY package*.json ./
 
+# Install git
+RUN apk add --no-cache git
+
 # Install dependencies
 RUN npm install --force
 
